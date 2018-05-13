@@ -1,6 +1,6 @@
 #include "todolib.h"
 
-main()
+int main()
 {
 	menu();
 	return 0;
