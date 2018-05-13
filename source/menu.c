@@ -1,19 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
+#include "todolib.h"
 
 void menu ()
 {
     char m;
     while (1)
     {
-        system ("CLS");
+        system ("clear");
         puts ("1. View your TODO-List");
         puts ("2. Add new task");
         puts ("3. Mark task as done");
         puts ("4. Delete task completely");
         puts ("0. Exit program");
-        m = getch();
+        m = getchar();
         switch (m)
         {
             case '1': view_list (list); break;
