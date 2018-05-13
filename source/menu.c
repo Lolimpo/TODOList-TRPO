@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void menu ()
+void menu()
 {
     char m;
     while (1)
@@ -12,14 +12,29 @@ void menu ()
         puts ("3. Mark task as done");
         puts ("4. Delete task completely");
         puts ("0. Exit program");
+        puts ("What would you like to do next?");
         m = getchar();
+        putchar (getchar( ));
         switch (m)
         {
-            case '1': view_list (list); break;
+            //case '1': view_list (list); break;
             case '2': add_task (list); break;
-            case '3': mark_done (list); break;
-            case '4': delete_task (list); break;
+            //case '3': mark_done (list); break;
+            //case '4': delete_task (list); break;
             case '0': return 0;
             default : puts ("No such command");
         }
+    }
+}
+
+void add_task()
+{
+    FILE *input;
+    char a[100];
+    system ("clear");
+    printf ("Enter your decided job:");
+    fgets (a, 100, stdin);
+    input = fopen("Todo-List.txt", "a+");
+    fprintf(input, "%s", a);
+    fclose(input);
 }
