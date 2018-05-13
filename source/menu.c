@@ -38,3 +38,19 @@ void add_task()
     fprintf(input, "%s", a);
     fclose(input);
 }
+
+void view_list (FILE *input)
+{
+    char str[60];
+    char *estr;
+    puts ("Your decided jobs:");
+    input = fopen("Todo-List.txt", "r");
+    while(!feof(input))
+    {
+        estr = fgets(str,sizeof(str),input);
+        if(estr != NULL)
+        printf("%s", &str);
+    }
+    fclose(input);
+}
+
