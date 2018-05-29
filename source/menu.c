@@ -2,31 +2,32 @@
 #include <stdlib.h>
 #include <string.h>
 
+FILE *list;
+
 void add_task()
 {
-    FILE *input;
-    char a[100];
+    char input_string[100];
     system("clear");
     printf("Enter your decided job:");
-    fgets(a, 100, stdin);
-    input = fopen("Todo-List.txt", "a+");
-    fprintf(input, "%s", a);
-    fclose(input);
+    fgets(input_string, 100, stdin);
+    list = fopen("Todo-List.txt", "a+");
+    fprintf(list, "%s", input_string);
+    fclose(list);
 }
 
-void view_list(FILE *input)
+void view_list()
 {
     char str[60];
     char *estr;
     puts("Your decided jobs:");
-    input = fopen("Todo-List.txt", "r");
-    while(!feof(input))
+    list = fopen("Todo-List.txt", "r");
+    while(!feof(list))
     {
-        estr = fgets(str, sizeof(str), input);
+        estr = fgets(str, sizeof(str), list);
         if(estr != NULL)
         printf("%s", str);
     }
-    fclose(input);
+    fclose(list);
 }
 
 int menu()
@@ -45,7 +46,7 @@ int menu()
         putchar (getchar());
         switch (m)
         {
-            //case '1': view_list (list); break;
+            case '1': view_list (); break;
             case '2': add_task(); break;
             //case '3': mark_done (list); break;
             //case '4': delete_task (list); break;
