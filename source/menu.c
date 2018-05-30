@@ -19,6 +19,7 @@ void view_list()
 {
     char str[60];
     char *estr;
+    system("clear");
     puts("Your decided jobs:");
     list = fopen("Todo-List.txt", "r");
     while(!feof(list))
@@ -35,7 +36,6 @@ int menu()
     char m;
     while(1)
     {
-        system("clear");
         puts("1. View your TODO-List");
         puts("2. Add new task");
         puts("3. Mark task as done");
