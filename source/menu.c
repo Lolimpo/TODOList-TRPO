@@ -23,7 +23,7 @@ void view_list()
     puts("Your decided jobs:");
     list = fopen("Todo-List.txt", "r");
     if (list == NULL)
-        printf ("You have no current plans");
+        printf("You have no current plans");
     else
     {
         while(!feof(list))
@@ -34,7 +34,7 @@ void view_list()
         }
         fclose(list);
     }
-    puts ("\n");
+    puts("\n");
 }
 
 void delete_task
@@ -42,7 +42,7 @@ void delete_task
     int del_num;
     int i = 0;
     char str[50][100];
-    system ("clear");
+    system("clear");
     view_list();
     printf("Which job would you like to delete?");
     scanf("%d", &del_num);
@@ -81,13 +81,13 @@ int menu()
         puts("0. Exit program");
         puts("What would you like to do next?");
         m = getchar();
-        putchar (getchar());
-        switch (m)
+        putchar(getchar());
+        switch(m)
         {
-            case '1': view_list (); break;
+            case '1': view_list(); break;
             case '2': add_task(); break;
             //case '3': mark_done (list); break;
-            case '4': delete_task (list); break;
+            case '4': delete_task(); break;
             case '0': return 0;
             default : puts("No such command");
         }
