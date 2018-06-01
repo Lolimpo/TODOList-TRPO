@@ -127,6 +127,7 @@ void delete_list()
 int menu()
 {
     char m;
+    char n;
     while(1)
     {
         puts("1. View your TODO-List");
@@ -135,8 +136,7 @@ int menu()
         puts("4. Delete tasks");
         puts("0. Exit program");
         puts("What would you like to do next?");
-        m = getchar();
-        putchar(getchar());
+        scanf("%s",&m);
         switch(m)
         {
             case '1': view_list(); break;
@@ -146,11 +146,13 @@ int menu()
             system("clear");
             puts("1. Delete 1 task");
             puts("2. Delete all current tasks");
-            scanf("%s",&m);
-            switch(m)
+            puts("0. Return to main menu");
+            scanf("%s",&n);
+            switch(n)
 			{
-				case '1': delete_task(); break;
-				case '2': delete_list(); break;
+				case '1': delete_task(); menu(); break;
+				case '2': delete_list(); menu(); break;
+				case '0': system("clear"); menu(); break;
 			}
             case '0': return 0;
             default : puts("No such command");
