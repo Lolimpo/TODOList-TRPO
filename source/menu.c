@@ -39,7 +39,13 @@ void view_list()
 
 void delete_task
 {
-
+    int del_num;
+    int i = 0;
+    char str[50][100];
+    system ("clear");
+    view_list();
+    printf("Which job would you like to delete?");
+    scanf("%d", &del_num);
 }
 
 int menu()
