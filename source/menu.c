@@ -62,7 +62,6 @@ void mark_done()
     done = fopen("Done-list.txt", "at");
     fprintf(done, "%s", str[done_str-1]);
     str[done_str-2][100] = 0;
-    printf("You done that task");
     list = fopen("Todo-List.txt", "w");
     while (i < str_count)
     {
