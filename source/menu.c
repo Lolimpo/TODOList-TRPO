@@ -57,7 +57,22 @@ void mark_done()
         }
     }
     fclose(list);
-
+    int str_count = i;
+    i = 0;
+    done = fopen("Done-list.txt", "at");
+    fprintf(done, "%s", str[done_str-1]);
+    str[done_str-2][100] = 0;
+    printf("You done that task");
+    list = fopen("Todo-List.txt", "w");
+    while (i < str_count)
+    {
+        if(str[i] !=0)
+            fprintf(list,"%s", str[i]);
+        i++;
+    }
+    fclose(list);
+    fclose(done);
+    puts ("\n");
 }
 
 void delete_task()
