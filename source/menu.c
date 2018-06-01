@@ -4,7 +4,7 @@ int menu()
 {
     int m;
     char input_string[100];
-    int done_str;
+    int done_str, del_num;
     while(1)
     {
         puts("1. View your TODO-List");
@@ -17,17 +17,20 @@ int menu()
         switch(m)
         {
             case 1:
-                view_list(); break;
+                view_list();
+                break;
             case 2:
 				system("clear");
 				printf("Enter your job:");
 				fgets(input_string, 100, stdin);
-                add_task(input_string); break;
+                add_task(input_string);
+                break;
             case 3:
                 system("clear");
                 printf("Which job had you done?");
                 scanf("%d", &done_str);
-                mark_done(done_str); break;
+                mark_done(done_str);
+                break;
             case 4:
                 system("clear");
                 puts("1. Delete 1 task");
@@ -36,12 +39,25 @@ int menu()
                 scanf("%d%*c",&m);
                 switch(m)
                 {
-                    case 1: delete_task(); menu(); break;
-                    case 2: delete_list(); menu(); break;
-                    case 0: system("clear"); menu(); break;
+                    case 1:
+                        printf("Which job would you like to delete?");
+                        scanf("%d", &del_num);
+                        delete_task(del_num);
+                        menu();
+                        break;
+                    case 2:
+                        delete_list();
+                        menu();
+                        break;
+                    case 0:
+                        system("clear");
+                        menu();
+                        break;
                 }
-            case 0: return 0;
-            default : puts("No such command");
+            case 0:
+                return 0;
+            default :
+                puts("No such command");
         }
     }
 }

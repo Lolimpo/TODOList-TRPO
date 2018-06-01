@@ -34,6 +34,23 @@ CTEST(Mark_done,True_Syntax_Check)
 	ASSERT_TRUE(result);
 }
 
+CTEST(Delete_task,False_Syntax_Check_Too_Little)
+{
+    bool result = delete_task(0);
+    ASSERT_FALSE(result);
+}
+
+CTEST(Delete_task,False_Syntax_Check_Too_Big)
+{
+    bool result = delete_task(150);
+    ASSERT_FALSE(result);
+}
+
+CTEST(Delete_task,True_Syntax_Check)
+{
+    bool result = delete_task(1);
+    ASSERT_TRUE(result);
+}
 
 int main(int argc, const char** argv)
 {
