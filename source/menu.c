@@ -53,25 +53,27 @@ void mark_done()
     {
         while(!feof(list))
         {
-            fgets(str[i],100,list);
+            fgets(str[i], sizeof(str),list);
+            i++;
+        }
+        fclose(list);
+        int str_count = i;
+        i = 0;
+        done = fopen("Done-List.txt", "at");
+        fprintf(done, "%s", str[done_str - 1]);
+        fclose(done);
+        str[done_str - 2][100] = 0;
+        list = fopen("Todo-List.txt", "w");
+        while (i < str_count)
+        {
+            if(str[i] != 0)
+                fprintf(list, "%s", str[i]);
             i++;
         }
     }
     fclose(list);
-    int str_count = i;
-    i = 0;
-    done = fopen("Done-list.txt", "at");
-    fprintf(done, "%s", str[done_str-1]);
-    str[done_str-2][100] = 0;
-    list = fopen("Todo-List.txt", "w");
-    while (i < str_count)
-    {
-        if(str[i] !=0)
-            fprintf(list,"%s", str[i]);
-        i++;
-    }
-    fclose(list);
-    fclose(done);
+    for (i = 0; i < 50; i++)
+        str[i][100] = 0;
     puts ("\n");
 }
 
@@ -89,15 +91,15 @@ void delete_task()
     {
         while(!feof(list))
         {
-            fgets(str[i], 100, list);
+            fgets(str[i], sizeof(str), list);
             i++;
         }
         fclose(list);
         list = fopen("Todo-List.txt", "w");
-        int str_num = i;
+        int str_count = i;
         i = 0;
         str[del_num - 2][100] = 0;
-        while (i < str_num)
+        while (i < str_count)
         {
             if (str[i] != 0)
                 fprintf(list, "%s", str[i]);
@@ -112,16 +114,16 @@ void delete_list()
 	char str[100];
 	system("clear");
 	list = fopen("Todo-List.txt","r");
-	if(list == NULL || fgets(str, 100, list) == NULL)
+	if(list == NULL || fgets(str, sizeof(str), list) == NULL)
 	{
 		printf("You have no current plans");
 	}
 	else
 	{
-	fclose(list);
-    list = fopen("Todo-List.txt","w+");
-	fclose(list);
-    printf("Your task list is now empty!\n");
+        fclose(list);
+        list = fopen("Todo-List.txt","w+");
+        fclose(list);
+        printf("Your task list is now empty!\n");
 	}
 }
 
