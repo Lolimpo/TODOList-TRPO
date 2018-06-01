@@ -23,7 +23,7 @@ int menu()
             case 2:
 				system("clear");
 				printf("Enter your job:");
-				fgets(input_string, 100, stdin);
+				fgets(input_string, sizeof(input_string), stdin);
                 add_task(input_string);
                 break;
             case 3:
@@ -38,7 +38,7 @@ int menu()
                 puts("1. Delete 1 task");
                 puts("2. Delete all current tasks");
                 puts("0. Return to main menu");
-                scanf("%d%*c",&m);
+                scanf("%d%*c", &m);
                 switch(m)
                 {
                     case 1:
@@ -46,11 +46,9 @@ int menu()
                         printf("Which job would you like to delete?");
                         scanf("%d", &del_num);
                         delete_task(del_num);
-                        menu();
                         break;
                     case 2:
                         delete_list();
-                        menu();
                         break;
                     case 0:
                         system("clear");

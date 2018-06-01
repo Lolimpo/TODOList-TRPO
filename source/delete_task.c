@@ -8,8 +8,10 @@ bool delete_task(int del_num)
     char *estr;
     system("clear");
     list = fopen("Todo-List.txt", "r");
-    if (list == NULL || (estr = fgets(strc, 100, list)) == NULL)
+    if ((list == NULL) || ((estr = fgets(strc, sizeof(strc), list)) == NULL))
+    {
         printf("You have no current plans \n");
+    }
     else
     {
 		rewind(list);
@@ -20,7 +22,7 @@ bool delete_task(int del_num)
                 printf("%s", strc);
         }
         fclose(list);
-     }
+    }
     list = fopen("Todo-List.txt", "r");
     if (list != NULL)
     {
@@ -39,9 +41,9 @@ bool delete_task(int del_num)
         str[del_num - 2][100] = 0;
         while (i < str_count)
         {
-            if (str[i] != 0)
+             if (str[i] != 0)
                 fprintf(list, "%s", str[i]);
-            i++;
+             i++;
         }
         fclose(list);
         return true;

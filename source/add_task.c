@@ -11,8 +11,6 @@ bool add_task(char input_string[100])
 		return true;
 	}
 	else
-	{
 		return false;
-	}
 }
 
