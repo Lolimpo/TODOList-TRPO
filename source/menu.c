@@ -48,7 +48,14 @@ void mark_done()
     printf("Which job would you like to done?");
     scanf("%d", &done_str);
     list = fopen("Todo-List.txt", "r");
-
+    if (list != NULL)
+    {
+        while(!feof(list))
+        {
+            fgets(str[i],100,list);
+            i++;
+        }
+    }
     fclose(list);
 
 }
