@@ -37,6 +37,11 @@ void view_list()
     puts ("\n");
 }
 
+void delete_task
+{
+
+}
+
 int menu()
 {
     char m;
@@ -55,7 +60,7 @@ int menu()
             case '1': view_list (); break;
             case '2': add_task(); break;
             //case '3': mark_done (list); break;
-            //case '4': delete_task (list); break;
+            case '4': delete_task (list); break;
             case '0': return 0;
             default : puts("No such command");
         }
