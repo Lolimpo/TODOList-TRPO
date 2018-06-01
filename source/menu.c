@@ -108,6 +108,11 @@ void delete_task()
 
 void delete_list()
 {
+	char str[100];
+	system("clear");
+	list = fopen("Todo-List.txt","w+");
+	fclose(list);
+    printf("Your task list is now empty!\n");
 }
 
 int menu()
