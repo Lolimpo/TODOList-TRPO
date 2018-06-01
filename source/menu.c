@@ -22,7 +22,7 @@ void view_list()
     system("clear");
     puts("Your decided jobs:");
     list = fopen("Todo-List.txt", "r");
-    if (list == NULL)
+    if (list == NULL || fgets(str, 100, list) == NULL)
         printf("You have no current plans");
     else
     {
@@ -152,9 +152,9 @@ int menu()
                 scanf("%d%*c",&m);
                 switch(m)
                 {
-                    case '1': delete_task(); menu(); break;
-                    case '2': delete_list(); menu(); break;
-                    case '0': system("clear"); menu(); break;
+                    case 1: delete_task(); menu(); break;
+                    case 2: delete_list(); menu(); break;
+                    case 0: system("clear"); menu(); break;
                 }
             case 0: return 0;
             default : puts("No such command");
