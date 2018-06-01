@@ -33,7 +33,7 @@ bool mark_done(int done_str)
     fclose(list);
     int str_count = i;
     i = 0;
-    if ((done_str < str_count) && (done_str != 0))
+    if ((done_str <= str_count) && (done_str != 0))
     {
         done = fopen("Done-List.txt", "at");
         fprintf(done, "%s", str[done_str-1]);
@@ -51,7 +51,8 @@ bool mark_done(int done_str)
         return true ;
     }
     else
-	{printf("No such job");
+	{
+		printf("No such job");
 		return false;
 	}
 }

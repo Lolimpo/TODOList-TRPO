@@ -37,6 +37,7 @@
 *.hex
 *.~
 main
+main-test
 
 # Debug files
 *.dSYM/
