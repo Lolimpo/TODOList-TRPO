@@ -4,6 +4,7 @@ int menu()
 {
     int m;
     char input_string[100];
+    int done_str;
     while(1)
     {
         puts("1. View your TODO-List");
@@ -23,7 +24,10 @@ int menu()
 				fgets(input_string, 100, stdin);
                 add_task(input_string); break;
             case 3:
-                mark_done(); break;
+                system("clear");
+                printf("Which job had you done?");
+                scanf("%d", &done_str);
+                mark_done(done_str); break;
             case 4:
                 system("clear");
                 puts("1. Delete 1 task");

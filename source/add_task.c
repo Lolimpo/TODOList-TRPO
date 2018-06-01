@@ -8,7 +8,6 @@ bool add_task(char input_string[100])
 		fprintf(list, "%s", input_string);
 		fclose(list);
 		return true;
-		
 	}
 	else
 	{

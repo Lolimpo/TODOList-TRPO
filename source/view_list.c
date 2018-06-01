@@ -8,7 +8,7 @@ void view_list()
     puts("Your decided jobs:");
     list = fopen("Todo-List.txt", "r");
     if (list == NULL || (estr = fgets(str, 100, list)) == NULL)
-        printf("You have no current plans");
+        printf("You have no current plans \n");
     else
     {
 		rewind(list);

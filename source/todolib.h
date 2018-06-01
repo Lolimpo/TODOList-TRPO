@@ -9,7 +9,7 @@ FILE *list;
 int menu();
 bool add_task(char input_string[100]);
 void view_list();
-void mark_done();
+bool mark_done(int done_str);
 void delete_task();
 void delete_list();
 

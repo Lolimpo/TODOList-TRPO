@@ -1,18 +1,15 @@
 #include "todolib.h"
 
-void mark_done()
+bool mark_done(int done_str)
 {
+    char str[50][100];
     char strc[100];
     char *estr;
     int i = 0;
-    int done_str;
-    char str[50][100];
     FILE * done;
-    system("clear");
-    puts("Your decided jobs:");
     list = fopen("Todo-List.txt", "r");
     if (list == NULL || (estr = fgets(strc, 100, list)) == NULL)
-        printf("You have no current plans");
+        printf("You have no current plans \n");
     else
     {
 		rewind(list);
@@ -24,8 +21,6 @@ void mark_done()
         }
         fclose(list);
      }
-    printf("Which job had you done?");
-    scanf("%d", &done_str);
     list = fopen("Todo-List.txt", "r");
     if (list != NULL)
     {
@@ -38,17 +33,25 @@ void mark_done()
     fclose(list);
     int str_count = i;
     i = 0;
-    done = fopen("Done-list.txt", "at");
-    fprintf(done, "%s", str[done_str-1]);
-    str[done_str-2][100] = 0;
-    list = fopen("Todo-List.txt", "w");
-    while (i < str_count)
+    if (done_str<str_count)
     {
-        if(str[i] !=0)
-            fprintf(list,"%s", str[i]);
-        i++;
+        done = fopen("Done-List.txt", "at");
+        fprintf(done, "%s", str[done_str-1]);
+        str[done_str-2][100] = 0;
+        list = fopen("Todo-List.txt", "w");
+        while (i < str_count)
+        {
+            if(str[i] !=0)
+                fprintf(list,"%s", str[i]);
+            i++;
+        }
+        fclose(list);
+        fclose(done);
+        puts ("\n");
+        return true ;
     }
-    fclose(list);
-    fclose(done);
-    puts ("\n");
+    else
+	{printf("No such job");
+		return false;
+	}
 }
