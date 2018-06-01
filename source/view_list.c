@@ -1,6 +1,6 @@
 #include "todolib.h"
 
-void view_list()
+void view_list_current()
 {
     char str[100];
     char *estr;
@@ -20,6 +20,11 @@ void view_list()
         }
         fclose(list);
     }
+}
+void view_list_done()
+{
+    char str[100];
+    char *estr;
     puts("Your completed tasks:");
     list = fopen("Done-List.txt", "r");
     if (list == NULL || (estr = fgets(str, 100, list)) == NULL)

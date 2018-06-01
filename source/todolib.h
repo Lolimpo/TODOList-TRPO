@@ -8,7 +8,8 @@
 FILE *list;
 int menu();
 bool add_task(char input_string[100]);
-void view_list();
+void view_list_current();
+void view_list_done();
 bool mark_done(int done_str);
 bool delete_task(int del_num);
 void delete_list();

@@ -50,6 +50,7 @@ bool mark_done(int done_str)
         }
         fclose(list);
         fclose(done);
+        system("clear");
         return true ;
     }
     else

@@ -17,7 +17,8 @@ int menu()
         switch(m)
         {
             case 1:
-                view_list();
+                view_list_current();
+                view_list_done();
                 break;
             case 2:
 				system("clear");
@@ -27,6 +28,7 @@ int menu()
                 break;
             case 3:
                 system("clear");
+                view_list_current();
                 printf("Which job had you done?");
                 scanf("%d", &done_str);
                 mark_done(done_str);
@@ -40,6 +42,7 @@ int menu()
                 switch(m)
                 {
                     case 1:
+                        view_list_current();
                         printf("Which job would you like to delete?");
                         scanf("%d", &del_num);
                         delete_task(del_num);
