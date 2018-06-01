@@ -39,7 +39,7 @@ void view_list()
     printf("Your done jobs: \n");
     list = fopen("Done-List.txt", "r");
     if (list == NULL || (estr = fgets(str, 100, list)) == NULL)
-        printf("You have no current plans");
+        printf("You haven't any jobs yet");
     else
     {
 		rewind(list);
