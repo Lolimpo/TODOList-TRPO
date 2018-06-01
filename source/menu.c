@@ -37,6 +37,38 @@ void view_list()
     puts ("\n");
 }
 
+void delete_task
+{
+    int del_num;
+    int i = 0;
+    char str[50][100];
+    system ("clear");
+    view_list();
+    printf("Which job would you like to delete?");
+    scanf("%d", &del_num);
+    list = fopen("Todo-List.txt", "r");
+    if (list != NULL)
+    {
+        while(!feof(list))
+        {
+            fgets(str[i], 100, list);
+            i++;
+        }
+        fclose(list);
+        list = fopen("Todo-List.txt", "w");
+        int str_num = i;
+        i = 0;
+        str[del_num - 2][100] = 0;
+        while (i < str_num)
+        {
+            if (str[i] != 0)
+                fprintf(list, "%s", str[i]);
+            i++;
+        }
+    }
+    fclose(list);
+}
+
 int menu()
 {
     char m;
@@ -55,7 +87,7 @@ int menu()
             case '1': view_list (); break;
             case '2': add_task(); break;
             //case '3': mark_done (list); break;
-            //case '4': delete_task (list); break;
+            case '4': delete_task (list); break;
             case '0': return 0;
             default : puts("No such command");
         }
