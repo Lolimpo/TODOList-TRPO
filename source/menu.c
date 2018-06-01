@@ -3,6 +3,7 @@
 int menu()
 {
     int m;
+    char input_string[100];
     while(1)
     {
         puts("1. View your TODO-List");
@@ -17,7 +18,10 @@ int menu()
             case 1:
                 view_list(); break;
             case 2:
-                add_task(); break;
+				system("clear");
+				printf("Enter your job:");
+				fgets(input_string, 100, stdin);
+                add_task(input_string); break;
             case 3:
                 mark_done(); break;
             case 4:

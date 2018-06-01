@@ -10,6 +10,12 @@ CTEST(Menu, Correct_Syntax_Check)
     ASSERT_FALSE(result);
 }
 
+CTEST()
+{
+	
+}
+
+
 int main(int argc, const char** argv)
 {
     return ctest_main(argc, argv);
