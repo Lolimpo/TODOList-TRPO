@@ -2,13 +2,29 @@
 
 void mark_done()
 {
+    char strc[100];
+    char *estr;
     int i = 0;
     int done_str;
     char str[50][100];
     FILE * done;
     system("clear");
-    view_list();
-    printf("Which job would you like to done?");
+    puts("Your decided jobs:");
+    list = fopen("Todo-List.txt", "r");
+    if (list == NULL || (estr = fgets(strc, 100, list)) == NULL)
+        printf("You have no current plans");
+    else
+    {
+		rewind(list);
+        while(!feof(list))
+        {
+            estr = fgets(strc, sizeof(strc), list);
+            if(estr != NULL)
+                printf("%s", strc);
+        }
+        fclose(list);
+     }
+    printf("Which job had you done?");
     scanf("%d", &done_str);
     list = fopen("Todo-List.txt", "r");
     if (list != NULL)

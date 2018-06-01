@@ -5,7 +5,7 @@ void view_list()
     char str[100];
     char *estr;
     system("clear");
-    puts("Your decided jobs:\n");
+    puts("Your decided jobs:");
     list = fopen("Todo-List.txt", "r");
     if (list == NULL || (estr = fgets(str, 100, list)) == NULL)
         printf("You have no current plans");
@@ -20,8 +20,7 @@ void view_list()
         }
         fclose(list);
     }
-    puts("\n");
-    puts("Your completed tasks:\n");
+    puts("Your completed tasks:");
     list = fopen("Done-List.txt", "r");
     if (list == NULL || (estr = fgets(str, 100, list)) == NULL)
         printf("You haven't done any jobs");
