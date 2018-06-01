@@ -39,6 +39,17 @@ void view_list()
 
 void mark_done()
 {
+    int i = 0;
+    int done_str;
+    char str[50][100];
+    FILE * done;
+    system("clear");
+    view_list();
+    printf("Which job would you like to done?");
+    scanf("%d", &done_str);
+    list = fopen("Todo-List.txt", "r");
+
+    fclose(list);
 
 }
 
