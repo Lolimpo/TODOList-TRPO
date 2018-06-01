@@ -7,9 +7,12 @@ bool mark_done(int done_str)
     char *estr;
     int i = 0;
     FILE * done;
-    list = fopen("Todo-List.txt", "r");
-    if (list == NULL || (estr = fgets(strc, 100, list)) == NULL)
+    list = fopen("Todo-List.txt", "w+t");
+    if (list == NULL || (estr = fgets(strc, sizeof(strc), list)) == NULL)
+    {
         printf("You have no current plans \n");
+        fclose(list);
+    }
     else
     {
 		rewind(list);
