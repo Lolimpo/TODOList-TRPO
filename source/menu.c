@@ -110,9 +110,18 @@ void delete_list()
 {
 	char str[100];
 	system("clear");
-	list = fopen("Todo-List.txt","w+");
+	list = fopen("Todo-List.txt","r");
+	if(list == NULL || fgets(str, 100, list) == NULL)
+	{
+		printf("You have no current plans");
+	}
+	else
+	{
+	fclose(list);
+    list = fopen("Todo-List.txt","w+");
 	fclose(list);
     printf("Your task list is now empty!\n");
+	}
 }
 
 int menu()
@@ -123,7 +132,7 @@ int menu()
         puts("1. View your TODO-List");
         puts("2. Add new task");
         puts("3. Mark task as done");
-        puts("4. Delete task completely");
+        puts("4. Delete tasks");
         puts("0. Exit program");
         puts("What would you like to do next?");
         m = getchar();
@@ -142,8 +151,7 @@ int menu()
 			{
 				case '1': delete_task(); break;
 				case '2': delete_list(); break;
-			}															[
-            delete_task(); break;
+			}
             case '0': return 0;
             default : puts("No such command");
         }
