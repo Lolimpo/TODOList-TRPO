@@ -37,7 +37,7 @@ void view_list()
     puts("\n");
 }
 
-void delete_task
+void delete_task()
 {
     int del_num;
     int i = 0;
