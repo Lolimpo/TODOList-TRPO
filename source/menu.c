@@ -8,7 +8,7 @@ void add_task()
 {
     char input_string[100];
     system("clear");
-    printf("Enter your decided job:");
+    printf("Enter your job:");
     fgets(input_string, 100, stdin);
     list = fopen("Todo-List.txt", "a+");
     fprintf(list, "%s", input_string);
@@ -22,13 +22,19 @@ void view_list()
     system("clear");
     puts("Your decided jobs:");
     list = fopen("Todo-List.txt", "r");
-    while(!feof(list))
+    if (list == NULL)
+        printf ("You have no current plans");
+    else
     {
-        estr = fgets(str, sizeof(str), list);
-        if(estr != NULL)
-        printf("%s", str);
+        while(!feof(list))
+        {
+            estr = fgets(str, sizeof(str), list);
+            if(estr != NULL)
+                printf("%s", str);
+        }
+        fclose(list);
     }
-    fclose(list);
+    puts ("\n");
 }
 
 int menu()
