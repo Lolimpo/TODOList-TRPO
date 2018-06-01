@@ -17,7 +17,7 @@ void add_task()
 
 void view_list()
 {
-    char str[60];
+    char str[100];
     char *estr;
     system("clear");
     puts("Your decided jobs:");
@@ -141,7 +141,7 @@ int menu()
         {
             case '1': view_list(); break;
             case '2': add_task(); break;
-            case '3': mark_done (list); break;
+            case '3': mark_done(); break;
             case '4': 
             system("clear");
             puts("1. Delete 1 task");
