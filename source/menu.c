@@ -36,6 +36,22 @@ void view_list()
         fclose(list);
     }
     puts("\n");
+    printf("Your done jobs: \n");
+    list = fopen("Done-List.txt", "r");
+    if (list == NULL || (estr = fgets(str, 100, list)) == NULL)
+        printf("You have no current plans");
+    else
+    {
+		rewind(list);
+        while(!feof(list))
+        {
+            estr = fgets(str, sizeof(str), list);
+            if(estr != NULL)
+                printf("%s", str);
+        }
+        fclose(list);
+    }
+    puts("\n");
 }
 
 void mark_done()
