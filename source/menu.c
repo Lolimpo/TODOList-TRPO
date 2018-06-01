@@ -22,10 +22,11 @@ void view_list()
     system("clear");
     puts("Your decided jobs:");
     list = fopen("Todo-List.txt", "r");
-    if (list == NULL || fgets(str, 100, list) == NULL)
+    if (list == NULL || (estr = fgets(str, 100, list)) == NULL)
         printf("You have no current plans");
     else
     {
+		rewind(list);
         while(!feof(list))
         {
             estr = fgets(str, sizeof(str), list);
