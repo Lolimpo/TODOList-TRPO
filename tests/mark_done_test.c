@@ -10,7 +10,7 @@ bool mark_done(int done_str)
     {
         while(!feof(list))
         {
-            fgets(str[i],100,list);
+            fgets(str[i], sizeof(str), list);
             i++;
         }
     }
@@ -21,12 +21,12 @@ bool mark_done(int done_str)
     {
         done = fopen("Done-List.txt", "at");
         fprintf(done, "%s", str[done_str-1]);
-        str[done_str-2][100] = 0;
+        str[done_str - 2][100] = 0;
         list = fopen("Todo-List.txt", "w");
         while (i < str_count)
         {
-            if(str[i] !=0)
-                fprintf(list,"%s", str[i]);
+            if(str[i] != 0)
+                fprintf(list, "%s", str[i]);
             i++;
         }
         fclose(list);

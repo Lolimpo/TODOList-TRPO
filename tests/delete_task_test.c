@@ -2,9 +2,8 @@
 
 bool delete_task(int del_num)
 {
-    int i = 0;
     char str[50][100];
-    system("clear");
+    int i = 0;
     list = fopen("Todo-List.txt", "r");
     if (list != NULL)
     {
@@ -15,11 +14,11 @@ bool delete_task(int del_num)
         }
     }
     fclose(list);
-    list = fopen("Todo-List.txt", "w");
     int str_count = i;
     i = 0;
     if ((del_num <= str_count) && (del_num != 0))
     {
+        list = fopen("Todo-List.txt", "w");
         str[del_num - 2][100] = 0;
         while (i < str_count)
         {
