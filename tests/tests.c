@@ -6,7 +6,6 @@
 
 CTEST(Menu, Correct_Syntax_Check)
 {
-    int m = 12;
     bool result = menu();
     ASSERT_FALSE(result);
 }
