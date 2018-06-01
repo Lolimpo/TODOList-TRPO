@@ -4,19 +4,14 @@
 #include "todolib.h"
 #include <stdbool.h>
 
-CTEST(Menu, Correct_Syntax_Check)
+CTEST(Add_task,Syntax_Check)
 {
-    bool result = menu();
-    ASSERT_FALSE(result);
+	bool result = add_task("\n");
+	ASSERT_FALSE(result);
 }
-
-CTEST()
-{
-	
-}
-
 
 int main(int argc, const char** argv)
 {
     return ctest_main(argc, argv);
 }
+

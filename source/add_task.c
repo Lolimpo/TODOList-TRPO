@@ -1,8 +1,18 @@
 #include "todolib.h"
 
-void add_task(char input_string[100])
+bool add_task(char input_string[100])
 {
-    list = fopen("Todo-List.txt", "a+");
-    fprintf(list, "%s", input_string);
-    fclose(list);
+	if(strcmp(input_string,"\n") != 0)
+	{
+		list = fopen("Todo-List.txt", "a+");
+		fprintf(list, "%s", input_string);
+		fclose(list);
+		return true;
+		
+	}
+	else
+	{
+		return false;
+	}
 }
+

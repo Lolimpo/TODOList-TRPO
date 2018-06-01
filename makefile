@@ -5,10 +5,10 @@ main-test: bin/main-test
 bin/main: build/main.o build/menu.o build/add_task.o build/view_list.o build/mark_done.o build/delete_task.o build/delete_list.o bin
 	gcc -Wall -Werror build/main.o build/menu.o build/add_task.o build/view_list.o build/mark_done.o build/delete_task.o build/delete_list.o -o bin/main
 
-bin/main-test: build/main-test.o build/add_task build/view_list build/mark_done.o build/delete_task.o build/delete_list.o bin
-	gcc -Wall -Werror -c tests/tests.c -o build/main-test.o
+bin/main-test: build/main-test.o build/add_task.o build/view_list.o build/mark_done.o build/delete_task.o build/delete_list.o bin
+	gcc -Wall -Werror build/main-test.o build/add_task.o build/view_list.o build/mark_done.o build/delete_task.o build/delete_list.o -o bin/main-test
 
-build/main-test.o: tests/tests.c
+build/main-test.o: tests/tests.c build
 	gcc -Wall -Werror -I thirdparty -I source -c tests/tests.c -o build/main-test.o
  
 build/add_task.o: source/add_task.c build
