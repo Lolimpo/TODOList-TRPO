@@ -54,5 +54,8 @@ bool mark_done(int done_str)
         return true ;
     }
     else
+	{
+	system("clear");
         return false;
+	}
 }
