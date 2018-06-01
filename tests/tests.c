@@ -10,15 +10,27 @@ CTEST(Add_task,False_Syntax_Check)
 	ASSERT_FALSE(result);
 }
 
-CTEST(Mark_done,False_Syntax_Check)
+CTEST(Add_task,True_Syntax_Check)
+{
+	bool result = add_task("Buy milk");
+	ASSERT_TRUE(result);
+}
+
+CTEST(Mark_done,False_Syntax_Check_Too_Big)
 {
 	bool result = mark_done(100);
 	ASSERT_FALSE(result);
 }
 
-CTEST(Mark_done,True_Syntax_Check)
+CTEST(Mark_done,False_Syntax_Check_Too_Little)
 {
 	bool result = mark_done(0);
+	ASSERT_FALSE(result);
+}
+
+CTEST(Mark_done,True_Syntax_Check)
+{
+	bool result = mark_done(1);
 	ASSERT_TRUE(result);
 }
 
