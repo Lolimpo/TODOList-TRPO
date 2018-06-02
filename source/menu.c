@@ -50,7 +50,7 @@ int menu()
                     case 2:
                         delete_list();
                         break;
-                    case 0:
+                    default:
                         system("clear");
                         menu();
                         break;
