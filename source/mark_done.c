@@ -23,7 +23,7 @@ bool mark_done(int done_str)
                 printf("%s", strc);
         }
         fclose(list);
-     }
+    }
     list = fopen("Todo-List.txt", "r");
     if (list != NULL)
     {
@@ -55,7 +55,7 @@ bool mark_done(int done_str)
     }
     else
 	{
-	system("clear");
+	    system("clear");
         return false;
 	}
 }
