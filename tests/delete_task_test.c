@@ -7,7 +7,7 @@ bool delete_task(int del_num)
     list = fopen("Todo-List.txt", "r");
     if (list != NULL)
     {
-        while(!feof(list))
+        while (!feof(list))
         {
             fgets(str[i], sizeof(str), list);
             i++;

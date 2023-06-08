@@ -11,16 +11,17 @@ void view_list_current()
         printf("You have no current plans \n");
     else
     {
-		rewind(list);
-        while(!feof(list))
+        rewind(list);
+        while (!feof(list))
         {
             estr = fgets(str, sizeof(str), list);
-            if(estr != NULL)
+            if (estr != NULL)
                 printf("%s", str);
         }
         fclose(list);
     }
 }
+
 void view_list_done()
 {
     char str[100];
@@ -31,11 +32,11 @@ void view_list_done()
         printf("You haven't done any jobs");
     else
     {
-		rewind(list);
-        while(!feof(list))
+        rewind(list);
+        while (!feof(list))
         {
             estr = fgets(str, sizeof(str), list);
-            if(estr != NULL)
+            if (estr != NULL)
                 printf("%s", str);
         }
         fclose(list);

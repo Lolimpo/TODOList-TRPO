@@ -14,11 +14,11 @@ bool delete_task(int del_num)
     }
     else
     {
-		rewind(list);
-        while(!feof(list))
+        rewind(list);
+        while (!feof(list))
         {
             estr = fgets(strc, sizeof(strc), list);
-            if(estr != NULL)
+            if (estr != NULL)
                 printf("%s", strc);
         }
         fclose(list);
@@ -26,7 +26,7 @@ bool delete_task(int del_num)
     list = fopen("Todo-List.txt", "r");
     if (list != NULL)
     {
-        while(!feof(list))
+        while (!feof(list))
         {
             fgets(str[i], sizeof(str), list);
             i++;
@@ -41,9 +41,9 @@ bool delete_task(int del_num)
         str[del_num - 2][100] = 0;
         while (i < str_count)
         {
-             if (str[i] != 0)
+            if (str[i] != 0)
                 fprintf(list, "%s", str[i]);
-             i++;
+            i++;
         }
         fclose(list);
         return true;
